@@ -15,9 +15,10 @@ class Personagem extends Controller
         $personagem = new Personagens();
         $personagem->create($dados->all());
         return view('cadastrar-personagem');
-
+        
     }
     function listarPersonagem(){
-        return view('listar-personagem');
+        $personagem = Personagens::all()->toArray();
+        return view('listar-personagem', ['personagem'=>$personagem]);
     }
 }
